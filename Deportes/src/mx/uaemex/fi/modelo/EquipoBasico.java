@@ -39,6 +39,7 @@ public abstract class EquipoBasico {
         ti = Integer.parseInt(tipo);
         this.tipo = ti;
     }
+    
   public abstract int numeroDeintegrante();
     public EquipoBasico(String nombre, String horario, String requisitos) {
         this.nombre = nombre;
@@ -72,11 +73,7 @@ public abstract class EquipoBasico {
     public void setHorario(String horario)throws exceptionNull,exceptionFormato{
        if(horario==null){
             throw new exceptionNull();
-        }
-       if(!validarHora(horario)){
-           throw new exceptionFormato();
-       }
-       
+        }    
         this.horario = horario;
     }
 
@@ -89,16 +86,6 @@ public abstract class EquipoBasico {
             throw new exceptionNull();
         }
         this.requisitos = requisitos;
-    }
-    
-    public boolean validarHora(String Hora){
-      boolean tr=false;
-      Pattern pat = Pattern.compile("^[0-9]{2}:[0-9]{2}");
-      Matcher mat = pat.matcher(Hora);
-      if(mat.matches()){
-        tr=true;
-      }
-      return tr;
     }
     
      public static boolean isNumeric( String s ){
